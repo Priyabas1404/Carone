@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace 'com.example.carz'
+    namespace 'com.example.rideeasy'
     compileSdk 34
 
     defaultConfig {
