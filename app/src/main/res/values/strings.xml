@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Carz</string>
+    <string name="app_name">RideEasy</string>
     <string name="car_make">Make</string>
     <string name="car_model">Model</string>
     <string name="car_year">Year</string>
