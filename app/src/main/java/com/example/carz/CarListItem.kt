@@ -2,6 +2,7 @@ package com.example.carz
 
 import android.media.Image
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -19,16 +20,17 @@ import androidx.compose.ui.unit.dp
 import com.example.carz.data.Cardata
 
 @Composable
-fun CarListItem(cardata: Cardata) {
+fun CarListItem(cardata: Cardata, navigateToProfile: (Cardata) -> Unit) {
     Card(
         modifier = Modifier
             .padding(horizontal = 8.dp, vertical = 8.dp)
             .fillMaxWidth(),
         elevation = 2.dp,
-        backgroundColor = Color.White,
         shape = RoundedCornerShape(corner = CornerSize(16.dp))
     ) {
-        Row {
+        Row(
+            Modifier.clickable { navigateToProfile(cardata) }
+        ) {
             carImage(cardata)
             Column(
                 modifier = Modifier

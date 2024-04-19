@@ -1,5 +1,6 @@
 package com.example.carz
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -12,6 +13,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.carz.data.Cardata
 import com.example.carz.ui.theme.CarzTheme
 
 class MainActivity : ComponentActivity() {
@@ -19,17 +21,19 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             CarzTheme {
-                CarzApp()
+                CarzApp {
+                    startActivity(CarDetailActivity.newIntent(this, it))
+                }
             }
         }
     }
 }
 
 @Composable
-fun CarzApp() {
+fun CarzApp(navigateToProfile: (Cardata) -> Unit) {
     Scaffold(
         content = {
-            CarsList()
+            CarsList(navigateToProfile = navigateToProfile)
         }
     )
 }

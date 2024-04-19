@@ -6,16 +6,17 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.unit.dp
+import com.example.carz.data.Cardata
 import com.example.carz.data.DataProvider
 
 @Composable
-fun CarsList() {
+fun CarsList(navigateToProfile:(Cardata) -> Unit) {
     val data = remember { DataProvider.carList }
     LazyColumn(contentPadding = PaddingValues(16.dp, vertical = 8.dp)){
         items(
             items = data,
             itemContent = {
-                CarListItem(cardata = it)
+                CarListItem(cardata = it, navigateToProfile)
             }
         )
     }
