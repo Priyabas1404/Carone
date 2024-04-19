@@ -38,8 +38,18 @@ fun CarzApp(navigateToProfile: (Cardata) -> Unit) {
     )
 }
 
-@Preview
+@Preview("Light Theme", widthDp = 360, heightDp = 640)
 @Composable
-fun PreviewRecyclerView() {
+fun LightPreview() {
+    CarzTheme {
+        CarzApp { }
+    }
+}
 
+@Preview("Dark Theme", widthDp = 360, heightDp = 640)
+@Composable
+fun DarkPreview() {
+    CarzTheme(darkTheme = true) {
+        CarzApp { }
+    }
 }
